@@ -1,0 +1,138 @@
+
+<html>
+<head>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href=" {{ asset ("asset/css/bootstrap.min.css") }}">
+    <!-- fontawesome -->
+    <link rel="stylesheet" type="text/css" href=" {{ asset ("asset/vendor/fontawesome/css/all.min.css") }}">
+
+    <!-- owlcarousel -->
+    <link rel="stylesheet" type="text/css" href=" {{ asset("asset/vendor/owlcarousel/owl.carousel.min.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/owlcarousel/owl.theme.default.min.css") }}">
+
+    <!-- aos -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/aos/aos.css") }}">
+
+    <!-- logo -->
+    <link rel="icon" href="{{ asset("asset/images/logo.png") }}" type="image/png" sizes="16x16">
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/css/style.css") }}">
+</head>
+
+
+<header>
+    <nav class="navbar navbar-expand-lg fixed-top menu">
+        <div class="container px-md-0">
+            <a class="navbar-brand" href="{{ path("app_projet") }}"><span>Le</span> Jardin Sucré </a>
+
+
+        </div>
+    </nav>
+</header>
+
+<div  id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-4">
+                <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link font-weight-bold "  href="{{ path("app_login" )}}"role="tab" aria-controls="pills-login" aria-selected="true">Log In</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link font-weight-bold active" id="pills-register-tab" data-toggle="pill" href="{{ path("app_register") }}" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+
+
+                <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
+                    {% block body %}
+    <form id="custom-form" method="post">
+
+
+        {{ form_start(registrationForm) }}
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(registrationForm) }}
+        </div>
+        <div class="row">
+
+            <div class="col">
+
+                {{ form_widget(registrationForm.user_name, {'attr': {'placeholder': 'User name'}}) }}
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+
+                {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'email'}}) }}
+
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col" id="some-custom-id">
+
+        {{ form_widget(registrationForm.plainPassword,{'attr': {'placeholder': 'Password'}}) }}
+
+
+            </div>
+
+        </div>
+    <br>
+
+        <input type="checkbox" name="chkagree" style="width: auto; display: inline;">
+        I agree with terms and conditions.
+
+        <br> <br>
+
+        <button class="btn btn-block btn-dark py-2 mb-4" type="submit" id="yourButton">Register</button>
+
+        {% endblock %}
+        {{ form_end(registrationForm) }}
+
+
+    </form>
+                    {% block javascripts %}
+                        <script>
+                            document.getElementById('yourButton').addEventListener('click', function() {
+                                alert("Votre compte a été enregistré avec succès.");
+                            });
+                        </script>
+                    {% endblock %}
+</div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- scripts -->
+<script type="text/javascript" src="{{ asset("asset/js/jquery.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/js/bootstrap.bundle.min.js") }}"></script>
+
+<!-- vendor -->
+<script type="text/javascript" src="{{ asset("asset/js/jquery.touchSwipe.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/owlcarousel/owl.carousel.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/owlcarousel/jquery.mousewheel.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/jquery-ui/jquery-ui.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/aos/aos.js") }}"></script>
+
+<!-- custom -->
+<script type="text/javascript" src="{{ asset("asset/js/custom.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/js/localstorage.js") }}"></script>
+</body>
+</html>
+
+

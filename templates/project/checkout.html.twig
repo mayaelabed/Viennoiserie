@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Le Jardin Sucré </title>
+
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="title" content="B-Bakery Bootstrap Project">
+    <meta name="description" content="Bakery Web Template with Bootstrap 4, CSS animations, JavaScript, JQuery and localstorge usage in shopping cart feature.">
+    <meta name="author" content="Seinn Let">
+    <meta name="keywords" content="bakery, bakery template, b-bakery, free template">
+    <meta name="robots" content="index, follow"/>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/css/bootstrap.min.css") }}">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/fontawesome/css/all.min.css") }}">
+
+    <!-- owlcarousel -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/owlcarousel/owl.carousel.min.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/owlcarousel/owl.theme.default.min.css") }}">
+
+    <!-- aos -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/aos/aos.css") }}">
+
+    <!-- jquery steps -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/jquery-steps/jquery.steps.css") }}">
+
+    <!-- logo -->
+    <link rel="icon" href="{{ asset("asset/images/logo.png") }}" type="image/png" sizes="16x16">
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/css/style.css") }}">
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg fixed-top menu">
+        <div class="container px-md-0">
+            <!--ne5ou name eli fel controller mta3 kol #Route exemple  #[Route('/project', name: 'app_projet')]-->
+            <a class="navbar-brand" href="{{ path("app_projet") }}"><span>Le</span> Jardin Sucré </a>
+
+            <a href="{{ path("app_cart") }}" class="d-lg-none d-md-inline-block btn ml-auto pr-3 pt-2"><i class="fas fa-shopping-basket icon-light-white pr-2"></i><sup><span class=" badge badge-brown badge-pill label-count">0</span></sup></a>
+
+            <button class="animate-toggler d-lg-none d-md-inline-block" type="button" data-target="#myNav" data-toggle="collapse">
+                <i></i><i></i><i></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_about") }}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_product") }}">Our Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_contact") }}">Contact Us</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+						<input type="text" name="search" id="searchbox" placeholder="Enter Keyword..." autofocus class="shadow p-2" style="display: none;">
+						<button class="btn btn-search"><i class="fas fa-search icon-light"></i></button>
+						<a href="{{ path("app_cart") }}" class="btn ml-lg-3  d-none d-lg-inline-block"><i class="fas fa-shopping-basket icon-light"></i><sup><span class="ml-1 badge badge-brown badge-pill label-count">0</span></sup></a>
+						<a href="{{ path("app_login") }}" class="btn btn-outline-dark ml-lg-4 btn-login" >Log In</a>
+                </span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section id="space-banner"></section>
+
+    <section id="checkout">
+        <div class="container py-5">
+            <h2 class="section-title">Check Out</h2>
+
+            <div id="wizard">
+                <h2>Customer Info</h2>
+                <section>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="my-3 mt-md-1 mb-md-3">Customer Detail</h5>
+
+                                <div class="my-4">
+                                    <label for="name">Name:</label>
+                                    <div>
+                                        <input type="text" name="name" id="customername" required class="form-control" placeholder="Enter Full Name">
+                                    </div>
+                                </div>
+
+                                <div class="my-4">
+                                    <label for="email">Email:</label>
+                                    <div>
+                                        <input type="text" name="email" id="customeremail" required class="form-control" placeholder="Enter Email Address">
+                                    </div>
+                                </div>
+
+                                <div class="my-4">
+                                    <label for="phone">Phone No:</label>
+                                    <div>
+                                        <input type="text" name="phone" id="customerphone" required class="form-control" placeholder="Enter Phone Number">
+                                    </div>
+                                </div>
+
+                                <div class="my-5">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="chksave">
+                                        <label class="custom-control-label" for="chksave">Save this information for next time.</label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <h5 class="my-3 mt-md-1 mb-md-3">Delivery Address</h5>
+
+                                <div class="my-4">
+                                    <label for="address">Address:</label>
+                                    <div>
+                                        <textarea id="customeraddress" class="form-control" rows="5" placeholder="Full Address..."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="my-4">
+                                    <label for="country">Country:</label>
+                                    <div>
+                                        <select class="form-control" id="customercountry">
+                                            <option>Myanmar (Burma)</option>
+                                            <option>Japan</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </form>
+                </section>
+
+                <h2>Payment Detail</h2>
+                <section>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="my-3 mt-md-1 mb-md-3">Payment</h5>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="payment-card" name="paymenttype" class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="payment-card" >Credit/Debit Card</label>
+                                </div>
+
+                                <div id="div-payment-card">
+                                    <div class="my-4">
+                                        <label for="nameoncard">Name on Card:</label>
+                                        <div>
+                                            <input type="text" name="nameoncard" id="nameoncard" required class="form-control" placeholder="Enter Full Name on Your Card">
+                                        </div>
+                                    </div>
+
+                                    <div class="my-4">
+                                        <label for="cardnumber">Card Number:</label>
+                                        <div>
+                                            <input type="text" name="cardnumber" id="cardnumber" required class="form-control" placeholder="XXXX XXXX XXXX XXXX">
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <div class="col-6">
+                                            <label for="expirydate">Expiry Date:</label>
+                                            <div>
+                                                <input type="date" name="expirydate" id="expirydate" required class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="cvvcode">CVV Code:</label>
+                                            <div>
+                                                <input type="number" name="cvvcode" id="cvvcode" required class="form-control" placeholder="000">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="my-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="chkagree">
+                                            <label class="custom-control-label" for="chkagree">I agree to the <a href="#" class="text-info">Terms of Service.</a></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="custom-control custom-radio custom-control-inline" style="margin-top: 40px">
+                                    <input type="radio" id="payment-cash" name="paymenttype" class="custom-control-input">
+                                    <label class="custom-control-label" for="payment-cash">Cash on Delivery</label>
+                                </div>
+
+                                <div id="div-payment-cash" class="p-4 my-3 bg-white text-center rounded">
+                                    Please pay our courier when he arrives to deliver your package. If we cannot collect payment you may not receive your order.
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <h2>Confirmation</h2>
+                <section>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <h5 class="my-3 mt-md-1 mb-md-3">Summary</h5>
+                            Customer Name: --- <br>
+                            Phone: --- <br>
+                            Email: --- <br>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <h5 class="my-3 mt-md-1 mb-md-3">Address</h5>
+                            ----, Yangon, Myanmar <br>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <h5 class="my-3 mt-md-1 mb-md-3">Payment</h5>
+                            By --- <br>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <h5 class="my-3 mt-md-1 mb-md-3">Total</h5>
+                            Total Qty : --- <br>
+                            Total Cost : Ks. ----
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="pt-5 text-center">
+    <h3 class="text-center font-italic">We Baked Every Day for You...</h3>
+    <hr>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <h4>Opening Hours</h4>
+                <div class="row opening-hour">
+                    <div class="col-5">Mon - Fri</div>
+                    <div class="col-7">08:00 to 09:00</div>
+
+                    <div class="col-5">Sat - Sun</div>
+                    <div class="col-7">08:00 to 06:00</div>
+
+                    <div class="col-5 text-warning mt-3">Happy Hour</div>
+                    <div class="col-7 text-warning mt-3">11:00 to 01:00</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h4>Address</h4>
+                <p>No.15, Myay Nu Street, <br> Sanchaung Township, Yangon</p>
+                <p>+95 920 3248 302</p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h4>Newsletter</h4>
+                <form>
+                    <input type="email" name="email" required placeholder="Your Email...">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <p class="mt-4">Subscribe to get regular updates and events.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="div-footer text-center py-4">
+        Copyright © 2020 B-Bakery Bootstrap Project by <a href="https://seinnletlethninn.me" target="_blank" class="text-white">Seinn Let</a>.
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-4">
+                <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link font-weight-bold active" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true">Log In</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link font-weight-bold" id="pills-register-tab" data-toggle="pill" href="#pills-register" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                        <form id="custom-form">
+                            <div class="group">
+                                <input type="email" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Email Address</label>
+                            </div>
+
+                            <div class="group">
+                                <input type="password" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Password</label>
+                            </div>
+
+                            <p class="text-right mb-4"><a href="#" class="text-muted">Forget Password?</a></p>
+
+                            <button class="btn btn-block btn-dark py-2 mb-4">Login</button>
+                            <p class="text-center text-secondary"><small>Or Login With</small></p>
+
+                            <div class="row mb-4">
+                                <div class="col-6"><button type="button" class="btn shadow btn-block btn-facebook"><i class="fab fa-facebook-f pr-2"></i> Facebook</button></div>
+
+                                <div class="col-6"><button type="button" class="btn shadow btn-block btn-google"><i class="fab fa-google pr-2"></i> Google</button></div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
+                        <form id="custom-form">
+                            <div class="group">
+                                <input type="text" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>User Name</label>
+                            </div>
+
+                            <div class="group">
+                                <input type="email" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Email Address</label>
+                            </div>
+
+                            <div class="group">
+                                <input type="password" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Password</label>
+                            </div>
+
+                            <input type="checkbox" name="chkagree" style="width: auto; display: inline;"> I agree with terms and conditions.
+
+                            <button class="btn btn-block btn-dark py-2 mt-5 mb-4">Register</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- scripts -->
+<script type="text/javascript" src="{{ asset("asset/js/jquery.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/js/bootstrap.bundle.min.js") }}"></script>
+
+<!-- vendor -->
+<script type="text/javascript" src="{{ asset("asset/js/jquery.touchSwipe.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/owlcarousel/owl.carousel.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/owlcarousel/jquery.mousewheel.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/jquery-ui/jquery-ui.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/aos/aos.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/jquery-steps/jquery.steps.min.js") }}"></script>
+
+<script>
+    $(function ()
+    {
+        $("#wizard").steps({
+            headerTag: "h2",
+            bodyTag: "section",
+            transitionEffect: "slideLeft"
+        });
+
+    });
+</script>
+
+<!-- custom -->
+<script type="text/javascript" src="{{ asset("asset/js/custom.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/js/localstorage.js") }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formations{% endblock %}
+
+{% block body %}
+    <h1>Training</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ formation.id }}</td>
+        </tr>
+        <tr>
+            <th>name</th>
+            <td>{{ formation.nom }}</td>
+        </tr>
+        <tr>
+            <th>Start date</th>
+            <td>{{ formation.date_debut }}</td>
+        </tr>
+        <tr>
+            <th>end date</th>
+            <td>{{ formation.date_retour}}</td>
+        </tr>
+        <tr>
+            <th>duration</th>
+            <td>{{ formation.duration }}</td>
+        </tr>
+        <tr>
+            <th>price</th>
+            <td>{{ formation.prix }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_formations_index') }}">back to list</a>
+
+    <a href="{{ path('app_formations_edit', {'id': formation.id}) }}">edit</a>
+
+    {{ include('formation/_delete_form.html.twig') }}
+{% endblock %}
