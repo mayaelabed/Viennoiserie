@@ -25,21 +25,21 @@ class ProjectController extends AbstractController
         ]);
     }
 //route pour la page des produit
-    #[Route('/product', name: 'app_product')]
+   /* #[Route('/product', name: 'app_product')]
     public function prod()
     {
         return $this->render('project/product.html.twig', [
             'controller_name' => 'ProjectController',
         ]);
-    }
+    }*/
 //route pour la page panier
-    #[Route('/panier', name: 'app_cart')]
-    public function panier()
+    /*#[Route('/cart', name: 'app_cart')]
+    public function cart()
     {
-        return $this->render('project/panier.html.twig', [
+        return $this->render('cart/index.html.twig', [
             'controller_name' => 'ProjectController',
         ]);
-    }
+    }*/
 // route pour la page checkout
     #[Route('/checkout', name: 'app_checkout')]
     public function checkout()
@@ -65,20 +65,20 @@ class ProjectController extends AbstractController
         ]);
     }
 
-   /*#[Route('/profile', name: 'app_profile')]
-    public function profile()
-    {
-        return $this->render('project/profile.html.twig', [
-            'controller_name' => 'ProjectController',
-        ]);
-    }
-    #[Route('/editprofile', name: 'app_editpro')]
-    public function editprofile()
-    {
-        return $this->render('project/editprofile.html.twig', [
-            'controller_name' => 'ProjectController',
-        ]);
-    }*/
+    /*#[Route('/profile', name: 'app_profile')]
+     public function profile()
+     {
+         return $this->render('project/profile.html.twig', [
+             'controller_name' => 'ProjectController',
+         ]);
+     }
+     #[Route('/editprofile', name: 'app_editpro')]
+     public function editprofile()
+     {
+         return $this->render('project/editprofile.html.twig', [
+             'controller_name' => 'ProjectController',
+         ]);
+     }*/
     #[Route('/formation', name: 'app_formation')]
     public function formation()
     {
