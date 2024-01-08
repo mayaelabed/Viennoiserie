@@ -4,14 +4,7 @@
 
     <title>Le Jardin Sucré </title>
 
-    <!-- meta tags -->
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="title" content="B-Bakery Bootstrap Project">
-    <meta name="description" content="Bakery Web Template with Bootstrap 4, CSS animations, JavaScript, JQuery and localstorge usage in shopping cart feature.">
-    <meta name="author" content="Seinn Let">
-    <meta name="keywords" content="bakery, bakery template, b-bakery, free template">
-    <meta name="robots" content="index, follow"/>
+
 
     <!-- bootstrap -->
     <link rel="stylesheet" type="text/css" href=" {{ asset ("asset/css/bootstrap.min.css") }}">
@@ -38,7 +31,7 @@
 <header>
     <nav class="navbar navbar-expand-lg fixed-top menu">
         <div class="container px-md-0">
-            <a class="navbar-brand" href="{{ path("app_projet") }}"><span>Le</span> Jardin Sucré </a>
+            <a class="navbar-brand" href="{{ path("app_projetA") }}"><span>Le</span> Jardin Sucré </a>
 
             <a href="{{ path("app_cart") }}" class="d-lg-none d-md-inline-block btn ml-auto pr-3 pt-2"><i class="fas fa-shopping-basket icon-light-white pr-2"></i><sup><span class=" badge badge-brown badge-pill label-count">0</span></sup></a>
 
@@ -48,20 +41,23 @@
 
             <div class="collapse navbar-collapse" id="myNav">
                 <ul class="navbar-nav mr-auto">
+
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path("app_about") }}">About Us</a>
+                        <a class="nav-link" href="{{ path("addproduit") }}"> Produit</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path("app_product") }}">Our Products</a>
+                        <a class="nav-link" href="{{ path("listecontact") }}"> Liste de contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path("app_formation_index") }}">Our training</a>
+                        <a class="nav-link" href="{{ path("listeclient") }}"> Liste de client</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path("addcontact") }}">Contact Us</a>
+                        <a class="nav-link" href="{{ path("app_formation_index") }}"> Liste de formation</a>
                     </li>
+
                 </ul>
                 <span class="navbar-text">
+
 						<input type="text" name="search" id="searchbox" placeholder="Enter Keyword..." autofocus class="shadow p-2" style="display: none;">
 						<button class="btn btn-search"><i class="fas fa-search icon-light"></i></button>
 						<a href="{{ path("app_cart") }}" class="btn ml-lg-3  d-none d-lg-inline-block"><i class="fas fa-shopping-basket icon-light"></i><sup><span class="ml-1 badge badge-brown badge-pill label-count">0</span></sup></a>

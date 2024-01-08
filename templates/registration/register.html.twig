@@ -29,6 +29,21 @@
 
 
         </div>
+        <span class="navbar-text">
+						<input type="text" name="search" id="searchbox" placeholder="Enter Keyword..." autofocus class="shadow p-2" style="display: none;">
+						<button class="btn btn-search"><i class="fas fa-search icon-light"></i></button>
+						<a href="{{ path("app_cart") }}" class="btn ml-lg-3  d-none d-lg-inline-block"><i class="fas fa-shopping-basket icon-light"></i><sup><span class="ml-1 badge badge-brown badge-pill label-count">0</span></sup></a>
+
+
+                        <a
+                                class="btn btn-outline-dark ml-lg-4 btn-login"
+                                href="/{{ app.user ? 'logout' : 'login' }}"
+                                @click="isOpen = false">
+                            {{ app.user ? 'Logout' : 'Login' }}
+                        </a>
+
+
+                </span>
     </nav>
 </header>
 
@@ -52,67 +67,67 @@
                 <div class="tab-content" id="pills-tabContent">
 
 
-                <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
-                    {% block body %}
-    <form id="custom-form" method="post">
+                    <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
+                        {% block body %}
+                        <form id="custom-form" method="post">
 
 
-        {{ form_start(registrationForm) }}
-        <div class="my-custom-class-for-errors">
-            {{ form_errors(registrationForm) }}
-        </div>
-        <div class="row">
+                            {{ form_start(registrationForm) }}
+                            <div class="my-custom-class-for-errors">
+                                {{ form_errors(registrationForm) }}
+                            </div>
+                            <div class="row">
 
-            <div class="col">
+                                <div class="col">
 
-                {{ form_widget(registrationForm.user_name, {'attr': {'placeholder': 'User name'}}) }}
+                                    {{ form_widget(registrationForm.user_name, {'attr': {'placeholder': 'User name'}}) }}
 
-            </div>
-        </div>
+                                </div>
+                            </div>
 
-        <div class="row">
+                            <div class="row">
 
-            <div class="col">
+                                <div class="col">
 
-                {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'email'}}) }}
-
-
-
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col" id="some-custom-id">
-
-        {{ form_widget(registrationForm.plainPassword,{'attr': {'placeholder': 'Password'}}) }}
+                                    {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'email'}}) }}
 
 
-            </div>
 
-        </div>
-    <br>
+                                </div>
+                            </div>
 
-        <input type="checkbox" name="chkagree" style="width: auto; display: inline;">
-        I agree with terms and conditions.
+                            <div class="row">
+                                <div class="col" id="some-custom-id">
 
-        <br> <br>
-
-        <button class="btn btn-block btn-dark py-2 mb-4" type="submit" id="yourButton">Register</button>
-
-        {% endblock %}
-        {{ form_end(registrationForm) }}
+                                    {{ form_widget(registrationForm.plainPassword,{'attr': {'placeholder': 'Password'}}) }}
 
 
-    </form>
-                    {% block javascripts %}
-                        <script>
-                            document.getElementById('yourButton').addEventListener('click', function() {
-                                alert("Votre compte a été enregistré avec succès.");
-                            });
-                        </script>
-                    {% endblock %}
-</div>
-</div>
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <input type="checkbox" name="chkagree" style="width: auto; display: inline;">
+                            I agree with terms and conditions.
+
+                            <br> <br>
+
+                            <button class="btn btn-block btn-dark py-2 mb-4" type="submit" id="yourButton">Register</button>
+
+                            {% endblock %}
+                            {{ form_end(registrationForm) }}
+
+
+                        </form>
+                        {% block javascripts %}
+                            <script>
+                                document.getElementById('yourButton').addEventListener('click', function() {
+                                    alert("Votre compte a été enregistré avec succès.");
+                                });
+                            </script>
+                        {% endblock %}
+                    </div>
+                </div>
 
             </div>
         </div>

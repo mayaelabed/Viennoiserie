@@ -59,6 +59,9 @@
                         <a class="nav-link" href="{{ path("app_product") }}">Our Products</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_formation_index") }}">Our training</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ path("app_contact") }}">Contact Us</a>
                     </li>
                 </ul>
@@ -80,11 +83,12 @@
         <div class="container py-5">
             <h2 class="section-title">Check Out</h2>
 
-            <div id="wizard">
+            <div id="">
                 <h2>Customer Info</h2>
                 <section>
-                    <form>
-                        <div class="row">
+                    <form method="post">
+                        {{ form_widget(FormC) }}
+
                             <div class="col-md-6">
                                 <h5 class="my-3 mt-md-1 mb-md-3">Customer Detail</h5>
 
@@ -115,134 +119,14 @@
                                         <label class="custom-control-label" for="chksave">Save this information for next time.</label>
                                     </div>
                                 </div>
+                                <input name="suivant" type="submit" value=" addcommande" >
 
-                            </div>
-
-                            <div class="col-md-6">
-                                <h5 class="my-3 mt-md-1 mb-md-3">Delivery Address</h5>
-
-                                <div class="my-4">
-                                    <label for="address">Address:</label>
-                                    <div>
-                                        <textarea id="customeraddress" class="form-control" rows="5" placeholder="Full Address..."></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="my-4">
-                                    <label for="country">Country:</label>
-                                    <div>
-                                        <select class="form-control" id="customercountry">
-                                            <option>Tunis</option>
-                                            <option>Ariana</option>
-                                           <option>Nabeul</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                    </form>
-                </section>
-
-                <h2>Payment Detail</h2>
-                <section>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h5 class="my-3 mt-md-1 mb-md-3">Payment</h5>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="payment-card" name="paymenttype" class="custom-control-input" checked>
-                                    <label class="custom-control-label" for="payment-card" >Credit/Debit Card</label>
-                                </div>
-
-                                <div id="div-payment-card">
-                                    <div class="my-4">
-                                        <label for="nameoncard">Name on Card:</label>
-                                        <div>
-                                            <input type="text" name="nameoncard" id="nameoncard" required class="form-control" placeholder="Enter Full Name on Your Card">
-                                        </div>
-                                    </div>
-
-                                    <div class="my-4">
-                                        <label for="cardnumber">Card Number:</label>
-                                        <div>
-                                            <input type="text" name="cardnumber" id="cardnumber" required class="form-control" placeholder="XXXX XXXX XXXX XXXX">
-                                        </div>
-                                    </div>
-
-                                    <div class="row my-4">
-                                        <div class="col-6">
-                                            <label for="expirydate">Expiry Date:</label>
-                                            <div>
-                                                <input type="date" name="expirydate" id="expirydate" required class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <label for="cvvcode">CVV Code:</label>
-                                            <div>
-                                                <input type="number" name="cvvcode" id="cvvcode" required class="form-control" placeholder="000">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="my-4">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="chkagree">
-                                            <label class="custom-control-label" for="chkagree">I agree to the <a href="#" class="text-info">Terms of Service.</a></label>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-
-                            <div class="col-md-6">
-
-                                <div class="custom-control custom-radio custom-control-inline" style="margin-top: 40px">
-                                    <input type="radio" id="payment-cash" name="paymenttype" class="custom-control-input">
-                                    <label class="custom-control-label" for="payment-cash">Cash on Delivery</label>
-                                </div>
-
-                                <div id="div-payment-cash" class="p-4 my-3 bg-white text-center rounded">
-                                    Please pay our courier when he arrives to deliver your package. If we cannot collect payment you may not receive your order.
-                                </div>
-
-                            </div>
-                        </div>
-                    </form>
-                </section>
-
-                <h2>Confirmation</h2>
-                <section>
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <h5 class="my-3 mt-md-1 mb-md-3">Summary</h5>
-                            Customer Name: --- <br>
-                            Phone: --- <br>
-                            Email: --- <br>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <h5 class="my-3 mt-md-1 mb-md-3">Address</h5>
-                            ----, Yangon, Myanmar <br>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <h5 class="my-3 mt-md-1 mb-md-3">Payment</h5>
-                            By --- <br>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <h5 class="my-3 mt-md-1 mb-md-3">Total</h5>
-                            Total Qty : --- <br>
-                            Total Cost : Ks. ----
-                        </div>
                     </div>
+                    </form>
                 </section>
-
             </div>
         </div>
+
     </section>
 
 </main>

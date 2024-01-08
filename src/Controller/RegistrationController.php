@@ -50,6 +50,14 @@ class RegistrationController extends AbstractController
         return $this->redirectToRoute('app_login');
     }
 
+    #[Route('/listeclient', name: 'listeclient')]
+    public function listeclient(UserRepository $vr): Response
+    {
+        $cl = $vr->findAll();
+        return $this->render('registration/listeclient.html.twig', [
+            'listeclient' => $cl,
+        ]);
+    }
 
 
 

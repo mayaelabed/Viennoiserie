@@ -1,40 +1,40 @@
 <html>
 
-<head>
+    <head>
 
-    <title>Le Jardin Sucré </title>
+        <title>Le Jardin Sucré </title>
 
-    <!-- meta tags -->
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="title" content="B-Bakery Bootstrap Project">
-    <meta name="description" content="Bakery Web Template with Bootstrap 4, CSS animations, JavaScript, JQuery and localstorge usage in shopping cart feature.">
-    <meta name="author" content="Seinn Let">
-    <meta name="keywords" content="bakery, bakery template, b-bakery, free template">
-    <meta name="robots" content="index, follow"/>
+        <!-- meta tags -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="title" content="B-Bakery Bootstrap Project">
+        <meta name="description" content="Bakery Web Template with Bootstrap 4, CSS animations, JavaScript, JQuery and localstorge usage in shopping cart feature.">
+        <meta name="author" content="Seinn Let">
+        <meta name="keywords" content="bakery, bakery template, b-bakery, free template">
+        <meta name="robots" content="index, follow"/>
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="{{ asset ("asset/css/bootstrap.min.css") }}">
+        <!-- bootstrap -->
+        <link rel="stylesheet" type="text/css" href="{{ asset ("asset/css/bootstrap.min.css") }}">
 
-    <!-- fontawesome -->
-    <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/fontawesome/css/all.min.css") }}">
+        <!-- fontawesome -->
+        <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/fontawesome/css/all.min.css") }}">
 
-    <!-- owlcarousel -->
-    <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/owlcarousel/owl.carousel.min.css") }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/owlcarousel/owl.theme.default.min.css") }}">
+        <!-- owlcarousel -->
+        <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/owlcarousel/owl.carousel.min.css") }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/owlcarousel/owl.theme.default.min.css") }}">
 
-    <!-- aos -->
-    <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/aos/aos.css") }}">
+        <!-- aos -->
+        <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/aos/aos.css") }}">
 
-    <!-- jquery ui -->
-    <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/jquery-ui/jquery-ui.css") }}">
+        <!-- jquery ui -->
+        <link rel="stylesheet" type="text/css" href="{{ asset ("asset/vendor/jquery-ui/jquery-ui.css") }}">
 
-    <!-- logo -->
-    <link rel="icon" href="{{ asset ("asset/images/logo.png") }}" type="image/png" sizes="16x16">
+        <!-- logo -->
+        <link rel="icon" href="{{ asset ("asset/images/logo.png") }}" type="image/png" sizes="16x16">
 
-    <!-- custom css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset("asset/css/style.css") }}">
-</head>
+        <!-- custom css -->
+        <link rel="stylesheet" type="text/css" href="{{ asset("asset/css/style.css") }}">
+    </head>
 <body>
 <header>
     <nav class="navbar navbar-expand-lg fixed-top menu">
@@ -82,35 +82,29 @@
 
     <section id="cart">
         <div class="container py-5">
-            <h2 class="section-title">Liste de contact</h2>
+            <h2 class="section-title">Liste de Client</h2>
             <div class="table-responsive">
 
                 <table border="2" class="table table-bordered" >
-    <tr>
-        <td>id</td>
-        <td>Nom</td>
-        <td>email</td>
-        <td>message</td>
-        <td>Supprimer</td>
-    </tr>
-    {% for v in listecontact %}
-        <tr>
-            <td>{{ v.id }}</td>
-            <td>{{ v.Name }}</td>
-            <td>{{ v.Email }}</td>
-            <td>{{ v.message }}</td>
+                    <tr>
+                        <td>Id</td>
+                        <td>Nom </td>
+                        <td>email :</td>
 
 
-            <td><a href="{{ path("contactdelete",{'id':v.id}) }}">Supprimer </a></td>
+                    </tr>
+                    {% for v in listeclient %}
+                        <tr>
+                            <td>{{ v.Id }}</td>
+                            <td>{{ v.getUserName }}</td>
+                            <td>{{ v.email }}</td>
 
-        </tr>
-    {% endfor %}
-</table>
+
+                        </tr>
+                    {% endfor %}
+                </table>
             </div>
-        </div>
-            </div>
-
-    </section>
+        </div></section>
 </main>
 
 </body>

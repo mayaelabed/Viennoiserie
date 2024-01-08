@@ -26,6 +26,9 @@
     <!-- aos -->
     <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/aos/aos.css") }}">
 
+    <!-- jquery steps -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/jquery-steps/jquery.steps.css") }}">
+
     <!-- logo -->
     <link rel="icon" href="{{ asset("asset/images/logo.png") }}" type="image/png" sizes="16x16">
 
@@ -38,6 +41,7 @@
 <header>
     <nav class="navbar navbar-expand-lg fixed-top menu">
         <div class="container px-md-0">
+            <!--ne5ou name eli fel controller mta3 kol #Route exemple  #[Route('/project', name: 'app_projet')]-->
             <a class="navbar-brand" href="{{ path("app_projet") }}"><span>Le</span> Jardin Sucré </a>
 
             <a href="{{ path("app_cart") }}" class="d-lg-none d-md-inline-block btn ml-auto pr-3 pt-2"><i class="fas fa-shopping-basket icon-light-white pr-2"></i><sup><span class=" badge badge-brown badge-pill label-count">0</span></sup></a>
@@ -48,14 +52,14 @@
 
             <div class="collapse navbar-collapse" id="myNav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ path("app_about") }}">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path("app_product") }}">Our Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path("app_formation_index") }}">Our training</a>
+                        <a class="nav-link" href="{{ path("app_formation_u") }}">Our training</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path("app_contact") }}">Contact Us</a>
@@ -65,8 +69,8 @@
 						<input type="text" name="search" id="searchbox" placeholder="Enter Keyword..." autofocus class="shadow p-2" style="display: none;">
 						<button class="btn btn-search"><i class="fas fa-search icon-light"></i></button>
 						<a href="{{ path("app_cart") }}" class="btn ml-lg-3  d-none d-lg-inline-block"><i class="fas fa-shopping-basket icon-light"></i><sup><span class="ml-1 badge badge-brown badge-pill label-count">0</span></sup></a>
-						<button class="btn btn-outline-dark ml-lg-4 btn-login" data-toggle="modal" data-target="#loginModal">Log In</button>
-					</span>
+						<a href="{{ path("app_login") }}" class="btn btn-outline-dark ml-lg-4 btn-login" >Log In</a>
+                </span>
             </div>
         </div>
     </nav>
@@ -75,48 +79,42 @@
 <main>
     <section id="space-banner"></section>
 
-    <section id="about-us">
+    <section id="checkout">
         <div class="container py-5">
-            <h2 class="section-title">About Us</h2>
+            <h2 class="section-title">Check Out</h2>
 
-            <div class="row mb-5">
-                <div class="col-lg-6 mb-3">
-                    <h3 class="font-weight-bold">History</h3>
-                    <p class="text-justify">
-                        Baking is a method of preparing food that uses dry heat, normally in an oven, but can also be done in hot ashes, or on hot stones. The most common baked item is bread but many other types of foods are baked.
-                    </p>
-                    <p class="text-justify">
-                        Heat is gradually transferred "from the surface of cakes, cookies, and breads to their center. As heat travels through, it transforms batters and doughs into baked goods and more with a firm dry crust and a softer centre.
-                    </p>
-                </div>
-                <div class="col-lg-6 text-center mb-3">
-                    <img src="{{ asset("asset/images/aboutus-1.jpg") }}" class="img-fluid shadow w-75 rounded">
-                </div>
+            <div id="">
+                <h2>Confirmation</h2>
+                <section>
+                    <table border="2" class="table table-bordered" >
+                        <tr>
+                            <td>id</td>
+                            <td>Nom</td>
+                            <td>email</td>
+                            <td>Numéro Télephone</td>
+                            <td>message</td>
+                        </tr>
+                        {% for v in liste %}
+                            <tr>
+                                <td>{{ v.id }}</td>
+                                <td>{{ v.nom }}</td>
+                                <td>{{ v.email }}</td>
+                                <td>{{ v.phone }}</td>
+                                <td>{{ v.address }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    </div>
+                </section>
+
             </div>
-
-            <div class="row my-5">
-                <div class="col-lg-6 text-center my-3 order-2 order-lg-1">
-                    <img src="{{ asset("asset/images/aboutus-2.jpg") }}" class="img-fluid shadow w-75 rounded">
-                </div>
-                <div class="col-lg-6 my-3 order-1 order-lg-2">
-                    <h3 class="font-weight-bold">Awards & Shops</h3>
-                    <ul class="my-4">
-                        <li data-aos="fade-up" data-aos-duration="1000"><span><i class="fas fa-check"></i> </span>Best Interior Bakery Design in 2019</li>
-                        <li data-aos="fade-up" data-aos-duration="1000"><span><i class="fas fa-check"></i> </span>Fastest Customer Service in 2020</li>
-                        <li data-aos="fade-up" data-aos-duration="1000"><span><i class="fas fa-check"></i> </span>Best Dinner Dessert Award in 2020</li>
-                    </ul>
-                    <p class="text-justify" data-aos="fade-up" data-aos-duration="1000">
-                        Our main office is in Yangon and we have two other branches in Yangon - Sanchaung and China Town. We also offer <strong>free delivery service</strong> within Yangon for online orders.
-                    </p>
-                </div>
-            </div>
-
         </div>
     </section>
+
 </main>
 
 <footer class="pt-5 text-center">
-    <h3 class="text-center font-italic" data-aos="fade-down" data-aos-duration="1000">We Baked Every Day for You...</h3>
+    <h3 class="text-center font-italic">We Baked Every Day for You...</h3>
     <hr>
     <div class="container">
         <div class="row">
@@ -250,9 +248,23 @@
 <script type="text/javascript" src="{{ asset("asset/vendor/owlcarousel/jquery.mousewheel.min.js") }}"></script>
 <script type="text/javascript" src="{{ asset("asset/vendor/jquery-ui/jquery-ui.js") }}"></script>
 <script type="text/javascript" src="{{ asset("asset/vendor/aos/aos.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/jquery-steps/jquery.steps.min.js") }}"></script>
+
+<script>
+    $(function ()
+    {
+        $("#wizard").steps({
+            headerTag: "h2",
+            bodyTag: "section",
+            transitionEffect: "slideLeft"
+        });
+
+    });
+</script>
 
 <!-- custom -->
 <script type="text/javascript" src="{{ asset("asset/js/custom.js") }}"></script>
 <script type="text/javascript" src="{{ asset("asset/js/localstorage.js") }}"></script>
+
 </body>
 </html>

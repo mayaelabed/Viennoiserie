@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +55,7 @@
                         <a class="nav-link" href="{{ path("app_product") }}">Our Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path("app_formation_index") }}">Our training</a>
+                        <a class="nav-link" href="{{ path("app_formation_u") }}">Our training</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path("addcontact") }}">Contact Us</a>
@@ -78,31 +77,33 @@
     <main style="margin-top:10%">
         <section>
             <table class="table">
-                <tbody>
+                <thead>
                 <tr>
                     <th>Id</th>
-                    <td>{{ formation.id }}</td>
-                </tr>
-                <tr>
                     <th>NomFormation</th>
-                    <td>{{ formation.nomFormation }}</td>
-                </tr>
-                <tr>
                     <th>DateFormation</th>
-                    <td>{{ formation.dateFormation ? formation.dateFormation|date('Y-m-d') : '' }}</td>
-                </tr>
-                <tr>
                     <th>Formateur</th>
-                    <td>{{ formation.formateur }}</td>
+
                 </tr>
+                </thead>
+                <tbody>
+                {% for formation in formations %}
+                    <tr>
+                        <td>{{ formation.id }}</td>
+                        <td>{{ formation.nomFormation }}</td>
+                        <td>{{ formation.dateFormation ? formation.dateFormation|date('Y-m-d') : '' }}</td>
+                        <td>{{ formation.formateur }}</td>
+
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
 
-            <a href="{{ path('app_formation_index') }}">back to list</a>
 
-            <a href="{{ path('app_formation_edit', {'id': formation.id}) }}">edit</a>
-
-            {{ include('formation/_delete_form.html.twig') }}
         </section>
 
     </main>
@@ -168,3 +169,5 @@
 <script type="text/javascript" src="{{ asset("asset/js/localstorage.js") }}"></script>
 </body>
 </html>
+
+

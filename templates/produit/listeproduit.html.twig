@@ -82,36 +82,33 @@
 
     <section id="cart">
         <div class="container py-5">
-            <h2 class="section-title">Liste de contact</h2>
+            <h2 class="section-title">Liste de produit</h2>
             <div class="table-responsive">
 
                 <table border="2" class="table table-bordered" >
     <tr>
-        <td>id</td>
-        <td>Nom</td>
-        <td>email</td>
-        <td>message</td>
-        <td>Supprimer</td>
+        <td>Id</td>
+        <td>Nom </td>
+        <td>Description :</td>
+        <td>prix </td>
+        <td>Quantite </td>
+        <td>Supprimer </td>
+        <td>Modifier </td>
     </tr>
-    {% for v in listecontact %}
-        <tr>
-            <td>{{ v.id }}</td>
-            <td>{{ v.Name }}</td>
-            <td>{{ v.Email }}</td>
-            <td>{{ v.message }}</td>
+    <tr>
+        {% for v in listeproduit %}
+
+        <td>{{v.Id }}</td>
+        <td>{{ v.nom }}</td>
+        <td>{{ v.description }}</td>
+        <td>{{ v.prix }}</td>
+        <td>{{ v.quantite }}</td>
 
 
-            <td><a href="{{ path("contactdelete",{'id':v.id}) }}">Supprimer </a></td>
-
-        </tr>
+        <td><a href="{{ path("produitdelete",{'id':v.id}) }}">Supprimer </a></td>
+        <td><a href="{{ path("produitupdate",{'id':v.id}) }}">modifier </a></td>
+    </tr>
     {% endfor %}
 </table>
-            </div>
-        </div>
-            </div>
-
-    </section>
-</main>
-
 </body>
 </html>

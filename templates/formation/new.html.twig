@@ -1,11 +1,149 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}New formations{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-{% block body %}
-    <h1>Create new formations</h1>
+    <title>Le Jardin Sucré </title>
 
-    {{ include('formation/_form.html.twig') }}
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="title" content="B-Bakery Bootstrap Project">
+    <meta name="description" content="Bakery Web Template with Bootstrap 4, CSS animations, JavaScript, JQuery and localstorge usage in shopping cart feature.">
+    <meta name="author" content="Seinn Let">
+    <meta name="keywords" content="bakery, bakery template, b-bakery, free template">
+    <meta name="robots" content="index, follow"/>
 
-    <a href="{{ path('app_formations_index') }}">back to list</a>
-{% endblock %}
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href=" {{ asset ("asset/css/bootstrap.min.css") }}">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" type="text/css" href=" {{ asset ("asset/vendor/fontawesome/css/all.min.css") }}">
+
+    <!-- owlcarousel -->
+    <link rel="stylesheet" type="text/css" href=" {{ asset("asset/vendor/owlcarousel/owl.carousel.min.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/owlcarousel/owl.theme.default.min.css") }}">
+
+    <!-- aos -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/vendor/aos/aos.css") }}">
+
+    <!-- logo -->
+    <link rel="icon" href="{{ asset("asset/images/logo.png") }}" type="image/png" sizes="16x16">
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("asset/css/style.css") }}">
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg fixed-top menu">
+        <div class="container px-md-0">
+            <a class="navbar-brand" href="{{ path("app_projet") }}"><span>Le</span> Jardin Sucré </a>
+
+            <a href="{{ path("app_cart") }}" class="d-lg-none d-md-inline-block btn ml-auto pr-3 pt-2"><i class="fas fa-shopping-basket icon-light-white pr-2"></i><sup><span class=" badge badge-brown badge-pill label-count">0</span></sup></a>
+
+            <button class="animate-toggler d-lg-none d-md-inline-block" type="button" data-target="#myNav" data-toggle="collapse">
+                <i></i><i></i><i></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_about") }}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_product") }}">Our Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_formation_index") }}">Our training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("addcontact") }}">Contact Us</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+						<input type="text" name="search" id="searchbox" placeholder="Enter Keyword..." autofocus class="shadow p-2" style="display: none;">
+						<button class="btn btn-search"><i class="fas fa-search icon-light"></i></button>
+						<a href="{{ path("app_cart") }}" class="btn ml-lg-3  d-none d-lg-inline-block"><i class="fas fa-shopping-basket icon-light"></i><sup><span class="ml-1 badge badge-brown badge-pill label-count">0</span></sup></a>
+						<a href="{{ path("app_login") }}" class="btn btn-outline-dark ml-lg-4 btn-login" >Log In</a>
+
+                </span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <main style="margin-top:10%">
+        <section>
+            {{ include('formation/_form.html.twig') }}
+            
+
+
+            <a href="{{ path('app_formation_index') }}">back to list</a>
+        </section>
+
+    </main>
+</main>
+
+<footer class="pt-5 text-center">
+    <h3 class="text-center font-italic" data-aos="fade-down" data-aos-duration="1000">We Baked Every Day for You...</h3>
+    <hr>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <h4>Opening Hours</h4>
+                <div class="row opening-hour">
+                    <div class="col-5">Mon - Fri</div>
+                    <div class="col-7">08:00 to 09:00</div>
+
+                    <div class="col-5">Sat - Sun</div>
+                    <div class="col-7">08:00 to 06:00</div>
+
+                    <div class="col-5 text-warning mt-3">Happy Hour</div>
+                    <div class="col-7 text-warning mt-3">11:00 to 01:00</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h4>Address</h4>
+                <p>No.15, Myay Nu Street, <br> Sanchaung Township, Yangon</p>
+                <p>+95 920 3248 302</p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h4>Newsletter</h4>
+                <form>
+                    <input type="email" name="email" required placeholder="Your Email...">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <p class="mt-4">Subscribe to get regular updates and events.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="div-footer text-center py-4">
+        Copyright © 2020 B-Bakery Bootstrap Project by <a href="https://seinnletlethninn.me" target="_blank" class="text-white">Seinn Let</a>.
+    </div>
+</footer>
+
+<!-- Modal -->
+
+<!-- scripts -->
+<script type="text/javascript" src="{{ asset("asset/js/jquery.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/js/bootstrap.bundle.min.js") }}"></script>
+
+<!-- vendor -->
+<script type="text/javascript" src="{{ asset("asset/js/jquery.touchSwipe.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/owlcarousel/owl.carousel.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/owlcarousel/jquery.mousewheel.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/jquery-ui/jquery-ui.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/vendor/aos/aos.js") }}"></script>
+
+<!-- custom -->
+<script type="text/javascript" src="{{ asset("asset/js/custom.js") }}"></script>
+<script type="text/javascript" src="{{ asset("asset/js/localstorage.js") }}"></script>
+</body>
+</html>

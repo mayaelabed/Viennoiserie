@@ -1,24 +1,24 @@
 <?php
-
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ContactForm extends  AbstractType
+class CheckoutForm extends  AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
-
     {
-        $builder->add('Name', TextType::class)
-            ->add('Email', TextType::class)->add('message', TextType::class)
-            ->add('Tlf', TextType::class)
-        ;
+        $builder->add('nom', TextType::class)
+            ->add('email', TextType::class)
+            ->add('phone', TextType::class)
+            ->add('address', TextType::class)
+            ->add('country', TextType::class);
     }
 
     public function getName()
     {
-        return "contact";
+        return "Checkout";
     }
 }
+

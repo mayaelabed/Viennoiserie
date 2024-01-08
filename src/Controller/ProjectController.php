@@ -17,7 +17,22 @@ class ProjectController extends AbstractController
             'controller_name' => 'ProjectController',
         ]);
     }
+    #[Route('/projectA', name: 'app_projetA')]
+    public function indexA()
+    {
+        return $this->render('Admin/indexAdmin.html.twig', [
+            'controller_name' => 'ProjectController',
+        ]);
+    }
+    #[Route('/projectU', name: 'app_projetU')]
+    public function indexU(UserRepository $vr, Security $security):Response
+    {
+        $user = $security->getUser();
 
+        return $this->render('user/index.html.twig', [
+            'user' => $user,
+        ]);
+    }
     #[Route('/login', name: 'app_login')]
     public function login()
     {
@@ -25,7 +40,8 @@ class ProjectController extends AbstractController
         ]);
     }
 //route pour la page des produit
-   /* #[Route('/product', name: 'app_product')]
+/*
+    #[Route('/product', name: 'app_product')]
     public function prod()
     {
         return $this->render('project/product.html.twig', [
@@ -39,7 +55,7 @@ class ProjectController extends AbstractController
         return $this->render('cart/index.html.twig', [
             'controller_name' => 'ProjectController',
         ]);
-    }*/
+    }
 // route pour la page checkout
     #[Route('/checkout', name: 'app_checkout')]
     public function checkout()
@@ -47,7 +63,7 @@ class ProjectController extends AbstractController
         return $this->render('project/checkout.html.twig', [
             'controller_name' => 'ProjectController',
         ]);
-    }
+    }*/
 
     #[Route('/about', name: 'app_about')]
     public function about()

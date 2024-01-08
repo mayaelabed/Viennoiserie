@@ -55,16 +55,22 @@
                         <a class="nav-link" href="{{ path("app_product") }}">Our Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path("app_formation_index") }}">Our training</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ path("addcontact") }}">Contact Us</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_formation_u") }}"> Our training</a>
+                    </li>
+
                 </ul>
                 <span class="navbar-text">
+
 						<input type="text" name="search" id="searchbox" placeholder="Enter Keyword..." autofocus class="shadow p-2" style="display: none;">
-						<button class="btn btn-search"><i class="fas fa-search icon-light"></i></button>
+
+                    <button class="btn btn-search"><i class="fas fa-search icon-light"></i></button>
+
 						<a href="{{ path("app_cart") }}" class="btn ml-lg-3  d-none d-lg-inline-block"><i class="fas fa-shopping-basket icon-light"></i><sup><span class="ml-1 badge badge-brown badge-pill label-count">0</span></sup></a>
+
+                    <a > {{ user.getUserName() }}</a>
 						 <a
                                  class="btn btn-outline-dark ml-lg-4 btn-login"
                                  href="/{{ app.user ? 'logout' : 'login' }}"
@@ -140,7 +146,7 @@
                     </div>
                 </div>
                 <div class="col-lg-7 px-md-5">
-                    <h3 class="about-heading">Welcome to Our B-Bakery!</h3>
+                    <h3 class="about-heading">Welcome </h3>
                     <p data-aos="fade-up" data-aos-duration="1000">We offer daily fresh bread, cakes and coffee. You can enjoy at our bakery or from our online shop.</p>
                     <ul>
                         <li data-aos="fade-up" data-aos-duration="1000"><span><i class="fas fa-check"></i> </span>Bread, Cakes, and Donuts</li>

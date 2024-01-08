@@ -57,6 +57,9 @@
                         <a class="nav-link" href="{{ path("app_product") }}">Our Products</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_formation_u") }}">Our training</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ path("app_contact") }}">Contact Us</a>
                     </li>
                 </ul>
@@ -64,8 +67,9 @@
 						<input type="text" name="search" id="searchbox" placeholder="Enter Keyword..." autofocus class="shadow p-2" style="display: none;">
 						<button class="btn btn-search"><i class="fas fa-search icon-light"></i></button>
 						<a href="{{ path("app_cart") }}" class="btn ml-lg-3  d-none d-lg-inline-block"><i class="fas fa-shopping-basket icon-light"></i><sup><span class="ml-1 badge badge-brown badge-pill label-count">0</span></sup></a>
-						<button class="btn btn-outline-dark ml-lg-4 btn-login" data-toggle="modal" data-target="#loginModal">Log In</button>
-					</span>
+
+
+                </span>
             </div>
         </div>
     </nav>
@@ -167,88 +171,6 @@
     </div>
 </footer>
 
-<!-- Modal -->
-<div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header border-0 pb-0">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body px-4">
-                <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link font-weight-bold active" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true">Log In</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link font-weight-bold" id="pills-register-tab" data-toggle="pill" href="#pills-register" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-                        <form id="custom-form">
-                            <div class="group">
-                                <input type="email" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Email Address</label>
-                            </div>
-
-                            <div class="group">
-                                <input type="password" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Password</label>
-                            </div>
-
-                            <p class="text-right mb-4"><a href="#" class="text-muted">Forget Password?</a></p>
-
-                            <button class="btn btn-block btn-dark py-2 mb-4">Login</button>
-                            <p class="text-center text-secondary"><small>Or Login With</small></p>
-
-                            <div class="row mb-4">
-                                <div class="col-6"><button type="button" class="btn shadow btn-block btn-facebook"><i class="fab fa-facebook-f pr-2"></i> Facebook</button></div>
-
-                                <div class="col-6"><button type="button" class="btn shadow btn-block btn-google"><i class="fab fa-google pr-2"></i> Google</button></div>
-                            </div>
-                        </form>
-
-                    </div>
-                    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
-                        <form id="custom-form">
-                            <div class="group">
-                                <input type="text" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>User Name</label>
-                            </div>
-
-                            <div class="group">
-                                <input type="email" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Email Address</label>
-                            </div>
-
-                            <div class="group">
-                                <input type="password" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Password</label>
-                            </div>
-
-                            <input type="checkbox" name="chkagree" style="width: auto; display: inline;"> I agree with terms and conditions.
-
-                            <button class="btn btn-block btn-dark py-2 mt-5 mb-4">Register</button>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- scripts -->
 <script type="text/javascript" src="{{ asset ("asset/js/jquery.min.js") }}"></script>

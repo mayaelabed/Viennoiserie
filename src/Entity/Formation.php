@@ -14,82 +14,52 @@ class Formation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Nom = null;
+    #[ORM\Column(length: 30)]
+    private ?string $nomFormation = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_debut = null;
+    private ?\DateTimeInterface $dateFormation = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_fin = null;
-
-    #[ORM\Column]
-    private ?float $prix_formation = null;
-
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $duration = null;
+    #[ORM\Column(length: 30)]
+    private ?string $formateur = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getNomFormation(): ?string
     {
-        return $this->Nom;
+        return $this->nomFormation;
     }
 
-    public function setNom(string $Nom): static
+    public function setNomFormation(string $nomFormation): static
     {
-        $this->Nom = $Nom;
+        $this->nomFormation = $nomFormation;
 
         return $this;
     }
 
-    public function getDateDebut(): ?\DateTimeInterface
+    public function getDateFormation(): ?\DateTimeInterface
     {
-        return $this->date_debut;
+        return $this->dateFormation;
     }
 
-    public function setDateDebut(\DateTimeInterface $date_debut): static
+    public function setDateFormation(\DateTimeInterface $dateFormation): static
     {
-        $this->date_debut = $date_debut;
+        $this->dateFormation = $dateFormation;
 
         return $this;
     }
 
-    public function getDateFin(): ?\DateTimeInterface
+    public function getFormateur(): ?string
     {
-        return $this->date_fin;
+        return $this->formateur;
     }
 
-    public function setDateFin(\DateTimeInterface $date_fin): static
+    public function setFormateur(string $formateur): static
     {
-        $this->date_fin = $date_fin;
-
-        return $this;
-    }
-
-    public function getPrixFormation(): ?float
-    {
-        return $this->prix_formation;
-    }
-
-    public function setPrixFormation(float $prix_formation): static
-    {
-        $this->prix_formation = $prix_formation;
-
-        return $this;
-    }
-
-    public function getDuration(): ?\DateTimeInterface
-    {
-        return $this->duration;
-    }
-
-    public function setDuration(\DateTimeInterface $duration): static
-    {
-        $this->duration = $duration;
+        $this->formateur = $formateur;
 
         return $this;
     }

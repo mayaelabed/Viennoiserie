@@ -3,65 +3,81 @@
 namespace App\Controller;
 
 use App\Entity\Formation;
-use App\Form\FormationsType;
+use App\Form\FormationType;
+use App\Repository\FormationRepository;
 use Doctrine\ORM\EntityManagerInterface;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 #[Route('/formation')]
 class FormationController extends AbstractController
 {
-    #[Route('/', name: 'app_formation')]
-    public function index(): Response
+    #[Route('/', name: 'app_formation_index', methods: ['GET'])]
+    public function index(FormationRepository $formationRepository): Response
     {
         return $this->render('formation/index.html.twig', [
-            'controller_name' => 'FormationController',
+            'formations' => $formationRepository->findAll(),
         ]);
     }
-// ajouter formation
 
-    #[Route('/new', name: 'addformation')]
-    public function addformation(Request $request, EntityManagerInterface $em)
+    #[Route('/indexu', name: 'app_formation_u', methods: ['GET'])]
+    public function index_u(FormationRepository $formationRepository): Response
     {
-        $Formation = new Formation();
-        $form = $this->createForm(FormationsType::class, $Formation);
-        $form->handleRequest($request);
-        if ($form->isSubmitted()) {
-            $em->persist($Formation);
-            $em->flush();
-            return $this->redirectToRoute("addformation");
-        }
-        return $this->render("formation/new.html.twig", ["FormV" =>$form->createView()]);
-    }
-
-    #[Route('/{id}', name: 'app_formations_show', methods: ['GET'])]
-    public function show(Formation $formations): Response
-    {
-        return $this->render('formations/show.html.twig', [
-            'formations' => $formations,
+        return $this->render('formation/indexu.html.twig', [
+            'formations' => $formationRepository->findAll(),
         ]);
     }
-    // modiffier formation
-    public function edit(Request $request, Formation $formation): Response
+
+    #[Route('/new', name: 'app_formation_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(FormationsType::class, $formation);
+        $formation = new Formation();
+        $form = $this->createForm(FormationType::class, $formation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager->persist($formation);
+            $entityManager->flush();
 
-            return $this->redirectToRoute('formation_index');
+            return $this->redirectToRoute('app_formation_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('formation/edit.html.twig', [
-            'formations' => $formation,
-            'form' => $form->createView(),
+        return $this->render('formation/new.html.twig', [
+            'formation' => $formation,
+            'form' => $form,
         ]);
     }
-    // supprimer formation
-    #[Route('/{id}', name: 'app_formations_delete', methods: ['POST'])]
+
+    #[Route('/{id}', name: 'app_formation_show', methods: ['GET'])]
+    public function show(Formation $formation): Response
+    {
+        return $this->render('formation/show.html.twig', [
+            'formation' => $formation,
+        ]);
+    }
+
+    #[Route('/{id}/edit', name: 'app_formation_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Formation $formation, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(FormationType::class, $formation);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_formation_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+
+        return $this->render('formation/edit.html.twig', [
+            'formation' => $formation,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'app_formation_delete', methods: ['POST'])]
     public function delete(Request $request, Formation $formation, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$formation->getId(), $request->request->get('_token'))) {
@@ -69,6 +85,6 @@ class FormationController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_formations_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_formation_index', [], Response::HTTP_SEE_OTHER);
     }
 }
